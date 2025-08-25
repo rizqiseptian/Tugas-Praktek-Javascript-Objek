@@ -40,18 +40,25 @@
                 spanText.textContent = teksv;
                 li.appendChild(spanText);
                 const btnEdit = document.createElement("button")
-                btnEdit.style.border = "none"
                 btnEdit.textContent = "Edit"
-                btnEdit.style.backgroundColor = "yellow"
+                btnEdit.addEventListener("click", function(){
+                    input.value = spanText.textContent;
+                button.value = "Update List";
+                button.style.backgroundColor = "green"
+                button.style.color = "black"
+                })
 
                 const btnDelete = document.createElement("button")
                 btnDelete.style.border = "none"
-                btnDelete.textContent = "Edit"
+                btnDelete.textContent = "Delete"
                 btnDelete.style.backgroundColor = "red"
                 list.appendChild(btnEdit);
                 list.appendChild(btnDelete);
                 list.appendChild(li)
-                teks.value = ""
+                teks.value = spanText.textContent;
+                button.value = "Update List";
+                button.style.backgroundColor = "green"
+                button.style.color = "black"
             } else {
                 alert("tidak boleh kosong")
             }
