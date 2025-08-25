@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- <ul id="menu">
+        <li id="item-1">Sunlight</li>
+        <li id="item-2">Mama lemon</li>
+        <li id="item-3">Scotch bright</li> -->
+    <!-- </ul> -->
+     <!-- <div id="content" class="content"></div> -->
+      <!-- <input id="clickme" type="button" value="click me"> -->
+
+    <h1>To do list</h1>
+    <div id="form">
+        <p>
+            <label for="item">To do list:</label>
+            <input type="text" id="teks" placeholder="ADD TO DO..">
+            <input id="btntambah" type="button" value="Add list">
+        </p>
+    </div>
+    <div id="content">
+        <ul id="list"></ul>
+    </div>
+    <script>
+        const teks = document.getElementById("teks");
+        const button = document.getElementById("btntambah")
+        const list = document.getElementById("list")
+
+        button.addEventListener("click", function (){
+            const teksv = teks.value;
+            if(teksv !== ""){
+                const li  = document.createElement("li");
+                const spanText = document.createElement("span");
+                spanText.textContent = teksv;
+                li.appendChild(spanText);
+                const btnEdit = document.createElement("button")
+                btnEdit.style.border = "none"
+                btnEdit.textContent = "Edit"
+                btnEdit.style.backgroundColor = "yellow"
+
+                const btnDelete = document.createElement("button")
+                btnDelete.style.border = "none"
+                btnDelete.textContent = "Edit"
+                btnDelete.style.backgroundColor = "red"
+                list.appendChild(btnEdit);
+                list.appendChild(btnDelete);
+                list.appendChild(li)
+                teks.value = ""
+            } else {
+                alert("tidak boleh kosong")
+            }
+        })
+        // const clickme = document.getElementById("clickme")
+
+        // clickme.addEventListener("click", function(){
+        //     clickme.setAttribute("value", "you already clickme");
+        // })
+        // const title = document.getElementById("title");
+        // title.text.Content = "belajar dom" 
+        // const menu = document.getElementById("menu")
+        // console.info(menu)
+        // console.info(menu.children)
+        // console.info(item)
+        // console.info(item.nextSibling)
+        // const content = document.getElementById("content");
+        // const title = document.createElement("h1");
+        // title.textContent = "title ini dibuat menggunakan java";
+        // content.appendChild(title);
+    </script>
+</body>
+</html>
