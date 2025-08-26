@@ -40,7 +40,11 @@
                 spanText.textContent = teksv;
                 li.appendChild(spanText);
                 const btnEdit = document.createElement("button")
-                btnEdit.textContent = "Edit"
+                btnEdit.textContent = "Edit"               
+                btnEdit.style.border = "none"
+                btnEdit.style.backgroundColor = "yellow"
+                btnEdit.style.margin = "10px"
+
                 btnEdit.addEventListener("click", function(){
                     input.value = spanText.textContent;
                 button.value = "Update List";
