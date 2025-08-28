@@ -21,28 +21,17 @@
     <div id="comment-list"></div>
     <script>
         document.querySelector("form[name=commentForm]").onsubmit = function(event) {
-            // Correctly reference the input fields by their IDs
             const commentList = document.getElementById("comment-list");
             const commentInput = document.getElementById("comment");
             const fromInput = document.getElementById("from");
-    
-            // Get the values from the input fields
+
             const comment = commentInput.value;
             const from = fromInput.value;
-    
-            // Create a new <p> element for the comment
             const commentItem = document.createElement("p");
-            
-            // Use a template literal to correctly format the output
             commentItem.textContent = `${comment} - ${from}`;
-            
-            // Append the new comment item to the comment list
             commentList.appendChild(commentItem);
-    
-            // Reset the form after submission
             document.forms['commentForm'].reset();
-    
-            // Prevent the default form submission behavior
+            
             event.preventDefault();
         }
     </script>
