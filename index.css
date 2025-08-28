@@ -1,74 +1,66 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-    scroll-behavior: smooth;
-    text-decoration: none;
-}
 body {
-    background: radial-gradient(circle, rgba(10, 25, 47, 1) 30%, rgba(2, 12, 27, 1) 90%);
-    color: #e6f1ff;
-    overflow-x: hidden;
-    margin: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(146, 184, 255);
 }
-#btntambah{
-    background-color: #c7cef0;
-    border: none;
-    padding: 5px;
-    justify-content: center;
-    overflow-x: hidden;
-    cursor: pointer;
+.judul {
+    text-align: center;
 }
-#btnEdit {
-    border: none;
-    border-radius: 5px;
-    background-color: yellow;
-}
-#btntambah:hover{
-    background-color: #1672eb;
-    scale: 1;
-}
-fieldset{
-    top: 200px;
-    display: block;
-    width: 100vh;
-    justify-content: center;
-    align-items: center;
+.tombol {
+    color: rgb(0, 0, 0);
+    background-color: #e7ecfc;
+    padding: 0 20px;
     border-radius: 15px;
-    padding: 10px;
-    justify-self: center;
-    background-color: #5f98e4;
     border: none;
 }
-h1{
-    text-align: center;
+.tombol:hover{
+    color: #001f85(255, 234, 234);
+    background-color: rgb(255, 255, 255);
+    transition: 0.2s;
+    transform: scale(1.);
+}
+.kegiatan {
+    background-color: rgb(105, 105, 105);
+    color: white;
+    padding: 10px;
+}
+.kegiatan::placeholder{
+    color: rgb(201, 201, 201);
+}
+.form {
+    display: flex;
+    gap: 10px;
     justify-content: center;
-
+    margin-bottom: 60px;
 }
-form{
-    display: block;
-    margin: 10px;
-    padding: 5px;
-    box-shadow: #5f98e4;
-}
-p{
-    margin: 5px;
-    text-align: center;
-}
-li{
-    background-color: rgb(120, 168, 223);
-    margin: 10px;
+#list li {
+    display: flex;
+    margin: auto;
+    border: 2px solid black;
+    background-color: rgb(144, 139, 144);
     padding: 10px;
-    box-shadow: black;
-    border-radius: 12px;
-    color: black;
-    width: fit-content;
-}
-#btnEdit{
-    background-color: yellow;
-    border: none;
-    margin: 5px;
-    border-radius: 5px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    list-style: none;
+    width: 50%;
 }
 
+.btnEdit {
+    color: black;
+    background-color: rgb(81, 81, 194);
+    padding: 0px 15px;
+    border: 2px solid black;
+    margin-left: 30px;
+}
+.btnEdit:hover {
+    background-color: rgb(117, 117, 211);
+}
+.btnDelete {
+    color: black;
+    background-color: rgb(197, 69, 69);
+    border: 2px solid black;
+    margin-left: 10px;
+}
+.btnDelete:hover {
+    background-color: rgb(208, 108, 108);
+}

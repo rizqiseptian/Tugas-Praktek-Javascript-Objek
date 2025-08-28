@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Form</title>
+</head>
+<body>
+    <form name="commentForm" action="">
+        <label for="comment">
+           comment : <input type="text" name="comment" id="comment">
+        </label>
+        <br>
+        <label for="from">
+           from : <input type="text" name="from" id="from">
+        </label>
+        <br>
+
+        <input type="submit" value="submit">
+    </form>
+    <div id="comment-list"></div>
+    <script>
+        document.querySelector("form[name=commentForm]").onsubmit = function(event) {
+            // Correctly reference the input fields by their IDs
+            const commentList = document.getElementById("comment-list");
+            const commentInput = document.getElementById("comment");
+            const fromInput = document.getElementById("from");
+    
+            // Get the values from the input fields
+            const comment = commentInput.value;
+            const from = fromInput.value;
+    
+            // Create a new <p> element for the comment
+            const commentItem = document.createElement("p");
+            
+            // Use a template literal to correctly format the output
+            commentItem.textContent = `${comment} - ${from}`;
+            
+            // Append the new comment item to the comment list
+            commentList.appendChild(commentItem);
+    
+            // Reset the form after submission
+            document.forms['commentForm'].reset();
+    
+            // Prevent the default form submission behavior
+            event.preventDefault();
+        }
+    </script>
+</body>
+</html>

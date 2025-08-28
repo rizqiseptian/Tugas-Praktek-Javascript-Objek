@@ -7,82 +7,71 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-
-    <!-- <ul id="menu">
-        <li id="item-1">Sunlight</li>
-        <li id="item-2">Mama lemon</li>
-        <li id="item-3">Scotch bright</li> -->
-    <!-- </ul> -->
-     <!-- <div id="content" class="content"></div> -->
-      <!-- <input id="clickme" type="button" value="click me"> -->
-
-    <h1>To do list</h1>
-    <div id="form">
-        <p>
-            <label for="item">To do list:</label>
-            <input type="text" id="teks" placeholder="ADD TO DO..">
-            <input id="btntambah" type="button" value="Add list">
-        </p>
-    </div>
-    <div id="content">
-        <ul id="list"></ul>
-    </div>
+      <h1 class="judul">To Do List</h1>
+      <div class="form">
+      <input class="kegiatan" type="text" name="kegiatan" id="kegiatan" placeholder="Add To Do...">
+      <input class="tombol" type="submit" name="kirim" value="Add List" id="tombol">
+      </div>
+      <div id="content">
+      <ul id="list"></ul>
+      </div>
     <script>
-        const teks = document.getElementById("teks");
-        const button = document.getElementById("btntambah")
-        const list = document.getElementById("list")
+        const activity = document.getElementById("activity");
+        const btn = document.getElementById("btn");
+        const list = document.getElementById("list");
+        let itemEdit = null;
 
-        button.addEventListener("click", function (){
-            const teksv = teks.value;
-            if(teksv !== ""){
-                const li  = document.createElement("li");
+        //menambahkan event listener pada tombol simpan
+        btn.addEventListener("click", function() {
+            //menyimpan value inputan
+            const activityv = activty.value;
+            //validasi input
+            if(activityv !== ""){
+                if (itemEdit) {
+                    const span = itemEdit.querySelector("span");
+                    span.textContent = kegiatanv;
+                    itemEdit = null
+                    btn.style.color = "";
+                    btn.style.backgroundColor = "";
+                    btn.value = "Add List";
+                    } else {
+                //membuat elemen li
+                const li = document.createElement("li");
+                //teks item
                 const spanText = document.createElement("span");
-                spanText.textContent = teksv;
+                //memberi value pada elemen li
+                spanText.textContent = activityv;
                 li.appendChild(spanText);
-                const btnEdit = document.createElement("button")
-                btnEdit.textContent = "Edit"               
-                btnEdit.style.border = "none"
-                btnEdit.style.backgroundColor = "yellow"
-                btnEdit.style.margin = "10px"
-
-                btnEdit.addEventListener("click", function(){
-                    input.value = spanText.textContent;
-                button.value = "Update List";
-                button.style.backgroundColor = "green"
-                button.style.color = "black"
-                })
-
-                const btnDelete = document.createElement("button")
-                btnDelete.style.border = "none"
-                btnDelete.textContent = "Delete"
-                btnDelete.style.backgroundColor = "red"
-                list.appendChild(btnEdit);
-                list.appendChild(btnDelete);
-                list.appendChild(li)
-                teks.value = spanText.textContent;
-                button.value = "Update List";
-                button.style.backgroundColor = "green"
-                button.style.color = "black"
-            } else {
-                alert("tidak boleh kosong")
+                //tambah button edit dan delete
+                const btnEdit = document.createElement("button");
+                btnEdit.textContent = "Edit";
+                btnEdit.classList.add("btnEdit");
+                //menambahkan event pada button edit
+                btnEdit.addEventListener("click", function () {
+                    activity.value = spanText.textContent;
+                    btn.value = "Update List";
+                    btn.style.color = "black";
+                    btn.style.backgroundColor = "yellow";
+                    itemEdit = li;
+                });
+                const btnDelete = document.createElement("button");
+                btnDelete.textContent = "Delete";
+                btnDelete.classList.add("btnDelete");
+                //menambahkan event pada button delete
+                btnDelete.addEventListener("click", function () {
+                    li.remove();
+                });
+                li.appendChild(btnEdit);
+                li.appendChild(btnDelete);
+                //kirim ke UL
+                list.appendChild(li);
             }
-        })
-        // const clickme = document.getElementById("clickme")
-
-        // clickme.addEventListener("click", function(){
-        //     clickme.setAttribute("value", "you already clickme");
-        // })
-        // const title = document.getElementById("title");
-        // title.text.Content = "belajar dom" 
-        // const menu = document.getElementById("menu")
-        // console.info(menu)
-        // console.info(menu.children)
-        // console.info(item)
-        // console.info(item.nextSibling)
-        // const content = document.getElementById("content");
-        // const title = document.createElement("h1");
-        // title.textContent = "title ini dibuat menggunakan java";
-        // content.appendChild(title);
+                kegiatan.value = "";
+            } else {
+                alert("Tidak Boleh Kosong!");
+            }
+        });
+        
     </script>
 </body>
 </html>
