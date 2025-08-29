@@ -9,8 +9,8 @@
 <body>
       <h1 class="judul">To Do List</h1>
       <div class="form">
-      <input class="kegiatan" type="text" name="kegiatan" id="kegiatan" placeholder="Add To Do...">
-      <input class="tombol" type="submit" name="kirim" value="Add List" id="tombol">
+      <input class="activity" type="text" name="activity" id="activity" placeholder="Add To Do...">
+      <input class="tombol" type="submit" name="kirim" value="Add List" id="btn">
       </div>
       <div id="content">
       <ul id="list"></ul>
@@ -23,16 +23,16 @@
 
         btn.addEventListener("click", function() {
 
-            const activityv = activty.value;
+            const activityv = activity.value;
                 if(activityv !== ""){
-                if (itemEdit) {
-                    const span = itemEdit.querySelector("span");
-                    span.textContent = kegiatanv;
-                    itemEdit = null
-                    btn.style.color = "";
-                    btn.style.backgroundColor = "";
-                    btn.value = "Add List";
-                    } else {
+                    if (itemEdit) {
+                        const span = itemEdit.querySelector("span");
+                        span.textContent = activityv;
+                        itemEdit = null
+                        btn.style.color = "";
+                        btn.style.backgroundColor = "";
+                        btn.value = "Add List";
+                        } else {
 
                 const li = document.createElement("li");
 
@@ -62,7 +62,7 @@
                 li.appendChild(btnDelete);
                 list.appendChild(li);
             }
-                kegiatan.value = "";
+                activity.value = "";
             } else {
                 alert("Tidak Boleh Kosong!");
             }
