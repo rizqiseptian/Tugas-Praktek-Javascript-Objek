@@ -21,12 +21,10 @@
         const list = document.getElementById("list");
         let itemEdit = null;
 
-        //menambahkan event listener pada tombol simpan
         btn.addEventListener("click", function() {
-            //menyimpan value inputan
+
             const activityv = activty.value;
-            //validasi input
-            if(activityv !== ""){
+                if(activityv !== ""){
                 if (itemEdit) {
                     const span = itemEdit.querySelector("span");
                     span.textContent = kegiatanv;
@@ -35,18 +33,18 @@
                     btn.style.backgroundColor = "";
                     btn.value = "Add List";
                     } else {
-                //membuat elemen li
+
                 const li = document.createElement("li");
-                //teks item
+
                 const spanText = document.createElement("span");
-                //memberi value pada elemen li
+
                 spanText.textContent = activityv;
                 li.appendChild(spanText);
-                //tambah button edit dan delete
+
                 const btnEdit = document.createElement("button");
                 btnEdit.textContent = "Edit";
                 btnEdit.classList.add("btnEdit");
-                //menambahkan event pada button edit
+
                 btnEdit.addEventListener("click", function () {
                     activity.value = spanText.textContent;
                     btn.value = "Update List";
@@ -57,13 +55,11 @@
                 const btnDelete = document.createElement("button");
                 btnDelete.textContent = "Delete";
                 btnDelete.classList.add("btnDelete");
-                //menambahkan event pada button delete
                 btnDelete.addEventListener("click", function () {
                     li.remove();
                 });
                 li.appendChild(btnEdit);
                 li.appendChild(btnDelete);
-                //kirim ke UL
                 list.appendChild(li);
             }
                 kegiatan.value = "";

@@ -1,5 +1,5 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Times new roman', Courier, monospace;
     background-color: rgb(146, 184, 255);
 }
 .judul {
@@ -28,7 +28,6 @@ body {
 }
 .form {
     display: flex;
-    gap: 10px;
     justify-content: center;
     margin-bottom: 60px;
 }
